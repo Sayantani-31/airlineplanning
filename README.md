@@ -2,9 +2,12 @@
 
 A comprehensive Streamlit dashboard for visualizing and optimizing airline fleet assignment and aircraft rotation management. This application integrates powerful optimization algorithms with an intuitive UI, featuring interactive charts, real-time analytics, and an AI-powered chat assistant for intelligent insights.
 <img width="1874" height="851" alt="image" src="https://github.com/user-attachments/assets/cba863c2-538b-4875-aa06-e4743c763b5f" />
+
+
 <video autoplay muted loop playsinline>
   <source src="image/chat_boat_demo.mp4" type="video/mp4">
 </video>
+<img width="1836" height="545" alt="image" src="https://github.com/user-attachments/assets/274c4a38-93f4-489b-8e09-4604bdbfe560" />
 
 ## 📋 Table of Contents
 
@@ -190,12 +193,12 @@ You will be able to explore the Airline Scheduling Optimization Dashboard, view 
 </td>
 
 <td align="center">
-<img src="image/network_graph.png" width="300">
+<img src="image/network_graph.png" width="500">
 <br><b>Network Graph</b>
 </td>
 
 <td align="center">
-<img src="image/aircraft_timing.png" width="300">
+<img src="image/aircraft_timing.png" width="400">
 <br><b>Aircraft Timing</b>
 </td>
 </tr>
