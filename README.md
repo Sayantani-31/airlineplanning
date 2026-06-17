@@ -2,6 +2,9 @@
 
 A comprehensive Streamlit dashboard for visualizing and optimizing airline fleet assignment and aircraft rotation management. This application integrates powerful optimization algorithms with an intuitive UI, featuring interactive charts, real-time analytics, and an AI-powered chat assistant for intelligent insights.
 <img width="1874" height="851" alt="image" src="https://github.com/user-attachments/assets/cba863c2-538b-4875-aa06-e4743c763b5f" />
+<video autoplay muted loop playsinline>
+  <source src="image/chat_boat_demo.mp4" type="video/mp4">
+</video>
 
 ## 📋 Table of Contents
 
@@ -73,8 +76,13 @@ airline_app/
 │   └── solver_log.txt            (optional, see below)
 └── .streamlit/
     └── secrets.toml.example
+```
 
+### Install Dependencies
 
+```bash
+pip install -r requirements.txt
+```
 ## 🚀 Installation
 
 ### Prerequisites
@@ -86,33 +94,11 @@ airline_app/
 ```bash
 cd airlineplanning
 ```
-
-### Step 2: Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
 ---
 
 ## ⚙️ Configuration
 
-### Data
-
-| File | Type | Required Columns |
-|---|---|---|
-| `flight_rotations.csv` | **Input** | flight, date, aircraft, ori, des, start_time, end_time, duration |
-| `starting_positions.csv` | **Input** | aircraft, airport |
-| `ending_positions.csv` | **Input** | aircraft, airport |
-| `flight_iterinaries.csv` | **Input** | cost, n_pass, flight, total_cost |
-| `aircraft_summary.csv` | **Output** | aircraft, assigned_flights, passengers, revenue |
-| `flight_assignments.csv` | **Output** | aircraft, flight, origin, destination, passengers, revenue |
-| `route_assignments.csv` | **Output** | aircraft, from_node, to_node |
-
-**Note:** A flight present in `flight_rotations.csv` but absent from
-`flight_assignments.csv` is automatically treated as **Cancelled**.
-
-### Optional: Solver Diagnostics
+### Solver Diagnostics
 
 Solver Details
 Optimization Type: Mixed Integer Programming (MIP)
@@ -146,8 +132,7 @@ Get a free key at https://console.groq.com.
 
 ## 💻 Usage
 
-## 🚀 Run the Project Locally
-
+#### 🚀 Run the Project Locally
 Clone the repository:
 
 ```bash
@@ -180,80 +165,46 @@ You will be able to explore the Airline Scheduling Optimization Dashboard, view 
 
 ## 📊 Dashboard Tabs
 
-### 1️⃣ **Overview**
+<table>
+<tr>
+<td align="center">
+<img src="image/flight_distribution.png" width="300">
+<br><b>Flight Distribution</b>
+</td>
 
-Main dashboard providing a high-level summary of operations:
+<td align="center">
+<img src="image/flight_status.png" width="300">
+<br><b>Flight Status</b>
+</td>
 
-- **KPI Cards** — 12 key performance indicators including:
-  - Total flights, active aircraft, total passengers
-  - Revenue metrics, cancellation rates
-  - Solver performance (status, runtime, optimality gap)
-- **Operated vs Cancelled** — Visual comparison of flight execution
-- **Demand vs Served** — Passenger capacity utilization analysis
-- Color-coded thresholds for quick health assessment
+<td align="center">
+<img src="image/passenger.png" width="300">
+<br><b>Passenger Analytics</b>
+</td>
+</tr>
 
-**Overview dashboard with KPI cards and operational metrics**
-![overview](image/firstpage.png)
+<tr>
+<td align="center">
+<img src="image/reveneuby_aircraft.png" width="300">
+<br><b>Revenue Analysis</b>
+</td>
 
----
+<td align="center">
+<img src="image/network_graph.png" width="300">
+<br><b>Network Graph</b>
+</td>
 
-### 2️⃣ **Flight Schedule**
-
-Detailed flight-to-aircraft assignment view with interactive filtering:
-
-- **Searchable/Filterable Table** — Find flights by aircraft, route, date, or status
-- **Cancelled Flight Highlighting** — Easily identify unassigned flights
-- **Export Functionality** — Download filtered results as CSV
-- **Columns Include:**
-  - Aircraft assignment, origin/destination
-  - Departure/arrival times, passengers, revenue
-  - Flight status (operated/cancelled)
-
-![Flight Schedule](image/flight_schedule.png)
-*Interactive flight assignment table with detailed operational information*
-
----
-
-### 3️⃣ **Aircraft Rotations**
-
-Visual representation of daily aircraft utilization and scheduling:
-
-- **Gantt Chart Visualization** — Interactive timeline of each aircraft's day
-  - Flight segments shown with duration and status
-  - Idle time clearly marked between rotations
-- **Utilization Metrics Table** — Per-aircraft performance:
-  - Total flight hours, duty time, idle time
-  - Number of legs, average block time
-- **Rotation Analysis** — Identify bottlenecks and optimization opportunities
-
- ![Aircraft Timing](image/aircraft_timing.png)
-*Gantt chart showing aircraft daily rotation and utilization patterns*
+<td align="center">
+<img src="image/aircraft_timing.png" width="300">
+<br><b>Aircraft Timing</b>
+</td>
+</tr>
+</table>
 
 ---
 
-### 4️⃣ **Network Analysis**
 
-Airport and route-level operational insights:
-
-- **Airport Hub Analysis:**
-  - Departures/arrivals per airport
-  - Passenger volume heatmap
-  - Hub identification (degree centrality)
-- **Top Routes Analysis:**
-  - Most frequently operated routes
-  - Revenue contribution by route
-  - Route cost breakdown
-- **Interactive Network Graph:**
-  - Visual airport connectivity
-  - In-degree/out-degree analysis
-  - Airport importance visualization
-
-- ![Network Graph](image/network_graph.png) - *Airport network connectivity visualization*
-- ![Aircraft Traffic](image/aircraft_trafic.png) - *Traffic flow analysis by airport*
-
----
-
-### 5️⃣ **Optimization Results**
+### **Optimization Results**
 
 Detailed solver performance and constraint validation:
 
@@ -281,7 +232,7 @@ Detailed solver performance and constraint validation:
 
 ---
 
-### 6️⃣ **Chat Assistant (AI-Powered)**
+### **Chat Assistant (AI-Powered)**
 
 Intelligent Q&A powered by Groq's language model:
 
@@ -310,47 +261,23 @@ Watch the AI chat assistant and full dashboard in action:
 
 ---
 
-### Key Dashboard Views
 
-<table>
-<tr>
-<td align="center">
-<img src="image/flight_distribution.png" width="300">
-<br><b>Flight Distribution</b>
-</td>
-
-<td align="center">
-<img src="image/flight_status.png" width="300">
-<br><b>Flight Status</b>
-</td>
-
-<td align="center">
-<img src="image/passenger.png" width="300">
-<br><b>Passenger Analytics</b>
-</td>
-</tr>
-
-<tr>
-<td align="center">
-<img src="image/revenue_by_aircraft.png" width="300">
-<br><b>Revenue Analysis</b>
-</td>
-
-<td align="center">
-<img src="image/network_graph.png" width="300">
-<br><b>Network Graph</b>
-</td>
-
-<td align="center">
-<img src="image/aircraft_timing.png" width="300">
-<br><b>Aircraft Timing</b>
-</td>
-</tr>
-</table>
-
----
 
 ## 📝 Data Format Details
+### Data
+
+| File | Type | Required Columns |
+|---|---|---|
+| `flight_rotations.csv` | **Input** | flight, date, aircraft, ori, des, start_time, end_time, duration |
+| `starting_positions.csv` | **Input** | aircraft, airport |
+| `ending_positions.csv` | **Input** | aircraft, airport |
+| `flight_iterinaries.csv` | **Input** | cost, n_pass, flight, total_cost |
+| `aircraft_summary.csv` | **Output** | aircraft, assigned_flights, passengers, revenue |
+| `flight_assignments.csv` | **Output** | aircraft, flight, origin, destination, passengers, revenue |
+| `route_assignments.csv` | **Output** | aircraft, from_node, to_node |
+
+**Note:** A flight present in `flight_rotations.csv` but absent from
+`flight_assignments.csv` is automatically treated as **Cancelled**.
 
 ### Input Data Format
 
