@@ -147,7 +147,7 @@ You will be able to explore the Airline Scheduling Optimization Dashboard, view 
 
 ---
 
-## 📊 Dashboard Tabs
+## 📊 Key Dashboard Views
 
 <table>
 <tr>
