@@ -1,6 +1,7 @@
 # ✈️ Airline Fleet Assignment & Rotation Dashboard
 
 A comprehensive Streamlit dashboard for visualizing and optimizing airline fleet assignment and aircraft rotation management. This application integrates powerful optimization algorithms with an intuitive UI, featuring interactive charts, real-time analytics, and an AI-powered chat assistant for intelligent insights.
+<img width="1874" height="851" alt="image" src="https://github.com/user-attachments/assets/cba863c2-538b-4875-aa06-e4743c763b5f" />
 
 ## 📋 Table of Contents
 
@@ -56,20 +57,6 @@ airlineplanning/
 │       └── airline_solution.sol
 │
 └── image/                          # Visual assets & demo
-  ├── chat_boat_demo.mp4          # Interactive demo video
-  ├── flight_schedule.png         # Flight assignments view
-  ├── aircraft_timing.png         # Aircraft rotation Gantt chart
-  ├── aircraft_trafic.png         # Aircraft traffic analysis
-  ├── flight_distribution.png     # Flight distribution analytics
-  ├── flight_status.png           # Flight operational status
-  ├── passenger.png               # Passenger analytics
-  ├── reveneuby_aircraft.png      # Revenue by aircraft
-  ├── network_graph.png           # Airport network visualization
-  ├── optimizer_log.png           # Optimization logs & diagnostics
-  └── constraints_validation.png  # Constraint validation results
-```
-
-```
 airline_app/
 ├── app.py              # Main Streamlit app (6 tabs)
 ├── data_loader.py       # Data loading, KPI computation, constraint validation
@@ -86,9 +73,7 @@ airline_app/
 │   └── solver_log.txt            (optional, see below)
 └── .streamlit/
     └── secrets.toml.example
-```
 
----
 
 ## 🚀 Installation
 
@@ -112,12 +97,7 @@ pip install -r requirements.txt
 
 ## ⚙️ Configuration
 
-### Add Your Real Data
-
-The `data/` folder currently contains **sample/demo data** transcribed from
-your screenshots so the app runs out-of-the-box. Replace these 7 files with
-your full real exports, keeping the **exact same filenames and column
-names**:
+### Data
 
 | File | Type | Required Columns |
 |---|---|---|
@@ -134,19 +114,18 @@ names**:
 
 ### Optional: Solver Diagnostics
 
-None of your 7 exported files contained solver diagnostics (objective value,
-runtime, MIP gap, variable/constraint counts), so Tab 5 reads them from two
-optional files — if missing, the dashboard shows "N/A" and a note instead of
-crashing:
+Solver Details
+Optimization Type: Mixed Integer Programming (MIP)
+Solver: Gurobi Optimizer
+Interface: GurobiPy
+Objective: Maximize operational efficiency and profitability while satisfying all scheduling constraints
+Solution Method: Branch-and-Bound with advanced presolve and cutting-plane techniques
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-red)
+![Gurobi](https://img.shields.io/badge/Solver-Gurobi-green)
+![Optimization](https://img.shields.io/badge/Model-MIP-orange)
 
-**`data/solver_summary.csv`** (single row):
-```csv
-solver_status,objective_value,runtime_seconds,mip_gap_percent,num_variables,num_constraints,total_operating_cost
-Optimal,612937.5,184.6,0.42,5320,3870,287450
-```
 
-**`data/solver_log.txt`** — plain text, shown verbatim in an expandable "Logs"
-section (e.g. your solver's branch-and-cut / iteration log).
 
 ### Set up the Groq API Key (for Chat Assistant)
 
@@ -167,13 +146,35 @@ Get a free key at https://console.groq.com.
 
 ## 💻 Usage
 
-### Run the Application
+## 🚀 Run the Project Locally
+
+Clone the repository:
+
+```bash
+git clone <your-repository-url>
+cd <repository-name>
+```
+
+Install the required dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Launch the Streamlit application:
 
 ```bash
 streamlit run app.py
 ```
 
-The app will be available at: **http://localhost:8501**
+After the application starts, open your browser and navigate to:
+
+```text
+http://localhost:8501
+```
+
+You will be able to explore the Airline Scheduling Optimization Dashboard, view optimization results, analyze KPIs, and interact with the AI Assistant.
+
 
 ---
 
@@ -191,7 +192,8 @@ Main dashboard providing a high-level summary of operations:
 - **Demand vs Served** — Passenger capacity utilization analysis
 - Color-coded thresholds for quick health assessment
 
-**Screenshot:** Overview dashboard with KPI cards and operational metrics
+**Overview dashboard with KPI cards and operational metrics**
+![overview](image/firstpage.png)
 
 ---
 
@@ -207,7 +209,7 @@ Detailed flight-to-aircraft assignment view with interactive filtering:
   - Departure/arrival times, passengers, revenue
   - Flight status (operated/cancelled)
 
-**Screenshot:** ![Flight Schedule](image/flight_schedule.png)
+![Flight Schedule](image/flight_schedule.png)
 *Interactive flight assignment table with detailed operational information*
 
 ---
@@ -224,7 +226,7 @@ Visual representation of daily aircraft utilization and scheduling:
   - Number of legs, average block time
 - **Rotation Analysis** — Identify bottlenecks and optimization opportunities
 
-**Screenshot:** ![Aircraft Timing](image/aircraft_timing.png)
+ ![Aircraft Timing](image/aircraft_timing.png)
 *Gantt chart showing aircraft daily rotation and utilization patterns*
 
 ---
@@ -246,7 +248,6 @@ Airport and route-level operational insights:
   - In-degree/out-degree analysis
   - Airport importance visualization
 
-**Screenshots:**
 - ![Network Graph](image/network_graph.png) - *Airport network connectivity visualization*
 - ![Aircraft Traffic](image/aircraft_trafic.png) - *Traffic flow analysis by airport*
 
@@ -275,7 +276,6 @@ Detailed solver performance and constraint validation:
   - Solution quality progression
   - Diagnostic messages
 
-**Screenshots:**
 - ![Optimizer Log](image/optimizer_log.png) - *Solver diagnostics and performance metrics*
 - ![Constraints Validation](image/constraints_validation.png) - *Constraint satisfaction verification*
 
@@ -312,19 +312,41 @@ Watch the AI chat assistant and full dashboard in action:
 
 ### Key Dashboard Views
 
-#### Flight Distribution & Status
-![Flight Distribution](image/flight_distribution.png)
-*Distribution of flights across the network with operational status breakdown*
+<table>
+<tr>
+<td align="center">
+<img src="image/flight_distribution.png" width="300">
+<br><b>Flight Distribution</b>
+</td>
 
-![Flight Status](image/flight_status.png)
-*Detailed flight status dashboard with cancellation and delay analysis*
+<td align="center">
+<img src="image/flight_status.png" width="300">
+<br><b>Flight Status</b>
+</td>
 
-#### Financial Analytics
-![Revenue by Aircraft](image/reveneuby_aircraft.png)
-*Revenue contribution analysis by aircraft in your fleet*
+<td align="center">
+<img src="image/passenger.png" width="300">
+<br><b>Passenger Analytics</b>
+</td>
+</tr>
 
-![Passenger Analytics](image/passenger.png)
-*Passenger volume and capacity utilization across flights and aircraft*
+<tr>
+<td align="center">
+<img src="image/revenue_by_aircraft.png" width="300">
+<br><b>Revenue Analysis</b>
+</td>
+
+<td align="center">
+<img src="image/network_graph.png" width="300">
+<br><b>Network Graph</b>
+</td>
+
+<td align="center">
+<img src="image/aircraft_timing.png" width="300">
+<br><b>Aircraft Timing</b>
+</td>
+</tr>
+</table>
 
 ---
 
