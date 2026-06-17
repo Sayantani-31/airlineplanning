@@ -1,0 +1,2 @@
+solver_status,objective_value,runtime_seconds,mip_gap_percent,num_variables,num_constraints,total_operating_cost
+Optimal,492049.5,0.02,0.0,1930,515,492049.5
