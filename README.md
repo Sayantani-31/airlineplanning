@@ -4,7 +4,7 @@ A comprehensive Streamlit dashboard for visualizing and optimizing airline fleet
 <img width="1874" height="851" alt="image" src="https://github.com/user-attachments/assets/cba863c2-538b-4875-aa06-e4743c763b5f" />
 
 <img width="1836" height="545" alt="image" src="https://github.com/user-attachments/assets/274c4a38-93f4-489b-8e09-4604bdbfe560" />
-<img width="1000" height="545" alt="chat_boat_demo" src="https://github.com/user-attachments/assets/9752987b-f731-4d33-8576-483218d9eaf3" />
+<img width="800" height="445" alt="chat_boat_demo" src="https://github.com/user-attachments/assets/9752987b-f731-4d33-8576-483218d9eaf3" />
 
 ## 📋 Table of Contents
 
